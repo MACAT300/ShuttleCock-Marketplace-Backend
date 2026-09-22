@@ -47,12 +47,13 @@ public class AuthController {
 
             Map<String, Object> response = new HashMap<>();
             response.put("token", token);
-            response.put("user", Map.of(
-                    "id", user.getId(),
-                    "name", user.getName(),
-                    "email", user.getEmail(),
-                    "isGoogleAccount", user.isGoogleAccount()
-            ));
+            Map<String, Object> userMap = new HashMap<>();
+            userMap.put("id", user.getId());
+            userMap.put("name", user.getName());
+            userMap.put("email", user.getEmail());
+            userMap.put("isGoogleAccount", user.isGoogleAccount());
+            userMap.put("avatarUrl", user.getAvatarUrl());
+            response.put("user", userMap);
             return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(401).body(e.getMessage());
@@ -68,12 +69,13 @@ public class AuthController {
 
             Map<String, Object> response = new HashMap<>();
             response.put("token", token);
-            response.put("user", Map.of(
-                    "id", user.getId(),
-                    "name", user.getName(),
-                    "email", user.getEmail(),
-                    "isGoogleAccount", user.isGoogleAccount()
-            ));
+            Map<String, Object> userMap = new HashMap<>();
+            userMap.put("id", user.getId());
+            userMap.put("name", user.getName());
+            userMap.put("email", user.getEmail());
+            userMap.put("isGoogleAccount", user.isGoogleAccount());
+            userMap.put("avatarUrl", user.getAvatarUrl());
+            response.put("user", userMap);
             return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(401).body(e.getMessage());
